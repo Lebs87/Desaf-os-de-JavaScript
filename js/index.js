@@ -1,38 +1,90 @@
-//Repeticiones de un texto
+//Ejercicio: Calcular el pago a realizar según intereses, descuentos y cuotas a pagar.
 
-let repeticiones = parseInt(prompt("Ingrese número de repeticiones deseadas"));
-let texto = prompt ("Ingresar texto a repetir");
+//Constantes
+const IVA = 0.21
+const CUOTABR = 0.10
+const CUOTAMR = 0.20
+const CUOTAAR = 0.30
 
-debugger
+//Información solicitada
+let montoCreditoSolicitado = parseInt(prompt("Ingrese el monto del crédito a solicitar"));
 
-for (let i=0; i<repeticiones; i++){
-    console.log(texto);
+while (montoCreditoSolicitado < 10000 || montoCreditoSolicitado > 100000) {
+    alert ("Debe ingresar un monto mayor a 10.000$ y menor a 100.000$");
+    montoCreditoSolicitado = parseInt(prompt("Ingrese el monto del crédito a solicitar"));
 }
 
-//División de números
+let numeroCuotas = parseInt(prompt("Ingrese la cantidad de Cuotas deseadas"))
 
-/*let numero1 = parseInt(prompt("Ingrese número a dividir"))
-let numero2 = parseInt(prompt("Ingrese divisor"))
+while (numeroCuotas < 6 || numeroCuotas > 12) {
+    alert ("Debe seleccionar entre 6 a 12 cuotas");
+    numeroCuotas = parseInt(prompt("Ingrese la cantidad de Cuotas deseadas"));
+}
 
-debugger
+//Cálculos
 
-let resultado = numero1 / numero2;
-alert(resultado);*/
+let creditoIVA = (montoCreditoSolicitado * IVA) + montoCreditoSolicitado
 
-let numero3 = varios3
-let numero4 = varios4
+switch (numeroCuotas){
+    case (6):
+        let calculoBR1 = (creditoIVA * CUOTABR) + creditoIVA
+        alert ("El monto total a pagar será de: " + calculoBR1 + " pesos, con pagos mensuales de: " + (calculoBR1/6) + " pesos." );
+        break;
+    case (7):
+        let calculoBR2 = (creditoIVA * CUOTABR) + creditoIVA
+        alert ("El monto total a pagar será de: " + calculoBR2 + " pesos, con pagos mensuales de: " + (calculoBR2/7) + " pesos." );
+        break;
+    case (8):
+        let calculoMR1 = (creditoIVA * CUOTAMR) + creditoIVA
+        alert ("El monto total a pagar será de: " + calculoMR1 + " pesos, con pagos mensuales de: " + (calculoMR1/8) + " pesos." );
+        break;
+    case (9):
+        let calculoMR2 = (creditoIVA * CUOTAMR) + creditoIVA
+        alert ("El monto total a pagar será de: " + calculoMR2 + " pesos, con pagos mensuales de: " + (calculoBR/9) + " pesos." );
+        break;
+    case (10):
+        let calculoAR1 = (creditoIVA * CUOTAAR) + creditoIVA
+        alert ("El monto total a pagar será de: " + calculoAR1 + " pesos, con pagos mensuales de: " + (calculoAR1/10) + " pesos." );
+        break;
+    case (11):
+        let calculoAR2 = (creditoIVA * CUOTAAR) + creditoIVA
+        alert ("El monto total a pagar será de: " + calculoAR2 + " pesos, con pagos mensuales de: " + (calculoAR2/11) + " pesos." );
+        break; 
+    case (12):
+        let calculoAR3 = (creditoIVA * CUOTAAR) + creditoIVA
+        alert ("El monto total a pagar será de: " + calculoAR3 + " pesos, con pagos mensuales de: " + (calculoAr3/12) + " pesos." );
+        break;
+}
 
-let numero5 = varios5
-let numero6 = varios6
-
-let numero7 = varios7
-let numero8 = varios8
-
-let numero9 = varios9
-let varios10 = varios10
-
-//Ejercicios con for 
-
-for (let a=0; a<repeticiones; a++){
-    console.log(texto);
+function nuevoCalculo (montoCreditoSolicitado , numeroCuotas) {
+    switch (numeroCuotas) {
+        case (6):
+            let calculoBR1 = (((montoCreditoSolicitado * IVA) + montoCreditoSolicitado) * CUOTABR) + ((montoCreditoSolicitado * IVA) + montoCreditoSolicitado)
+            alert ("El monto total a pagar será de: " + calculoBR1 + " pesos, con pagos mensuales de: " + (calculoBR1/6) + " pesos." );
+            break;
+        case (7):
+            let calculoBR2 = (((montoCreditoSolicitado * IVA) + montoCreditoSolicitado) * CUOTABR) + ((montoCreditoSolicitado * IVA) + montoCreditoSolicitado)
+            alert ("El monto total a pagar será de: " + calculoBR2 + " pesos, con pagos mensuales de: " + (calculoBR2/7) + " pesos." );
+            break;
+        case (8):
+            let calculoMR1 = (((montoCreditoSolicitado * IVA) + montoCreditoSolicitado) * CUOTAMR) + ((montoCreditoSolicitado * IVA) + montoCreditoSolicitado)
+            alert ("El monto total a pagar será de: " + calculoMR1 + " pesos, con pagos mensuales de: " + (calculoMR1/8) + " pesos." );
+            break;
+        case (9):
+            let calculoMR2 = (((montoCreditoSolicitado * IVA) + montoCreditoSolicitado) * CUOTAMR) + ((montoCreditoSolicitado * IVA) + montoCreditoSolicitado)
+            alert ("El monto total a pagar será de: " + calculoMR2 + " pesos, con pagos mensuales de: " + (calculoBR/9) + " pesos." );
+            break;
+        case (10):
+            let calculoAR1 = (((montoCreditoSolicitado * IVA) + montoCreditoSolicitado) * CUOTAAR) + ((montoCreditoSolicitado * IVA) + montoCreditoSolicitado)
+            alert ("El monto total a pagar será de: " + calculoAR1 + " pesos, con pagos mensuales de: " + (calculoAR1/10) + " pesos." );
+            break;
+        case (11):
+            let calculoAR2 = (((montoCreditoSolicitado * IVA) + montoCreditoSolicitado) * CUOTAAR) + ((montoCreditoSolicitado * IVA) + montoCreditoSolicitado)
+            alert ("El monto total a pagar será de: " + calculoAR2 + " pesos, con pagos mensuales de: " + (calculoAR2/11) + " pesos." );
+            break; 
+        case (12):
+            let calculoAR3 = (((montoCreditoSolicitado * IVA) + montoCreditoSolicitado) * CUOTAAR) + ((montoCreditoSolicitado * IVA) + montoCreditoSolicitado)
+            alert ("El monto total a pagar será de: " + calculoAR3 + " pesos, con pagos mensuales de: " + (calculoAr3/12) + " pesos." );
+            break;
+    }
 }
